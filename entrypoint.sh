@@ -28,6 +28,6 @@ then
 fi
 
 echo "Running: $cmd"
-${cmd}
+$cmd
 echo "::set-output name=outputPath::$zipFolder"
 echo "::add-path::$zipFolder"
