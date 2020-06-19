@@ -1,5 +1,5 @@
 # action.yml
-name: CURL-ACTION
+name: ZIP-UNZIP-ACTION
 author: Christopher Queen
 description: a cURL CLI
 inputs:
