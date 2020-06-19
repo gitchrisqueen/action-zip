@@ -18,16 +18,26 @@ args="$1"
 zipFile="$2"
 zipFolder="$3"
 
+# Using $@ to store command and options
+set -- "$args" -qq
+
 if  [[ $args == zip* ]] ;
 then
-    cmd="zip -qq -r $zipFile $zipFolder"
-fi
-if  [[ $args == unzip* ]] ;
-then
-    cmd="unzip -qq $zipFile -d $zipFolder"
+  set -- "$@" -r
+   # cmd="zip -qq -r $zipFile $zipFolder"
 fi
 
-echo "Running: $cmd"
-$cmd
+set -- "$@" "$zipFile"
+
+if  [[ $args == unzip* ]] ;
+then
+  set -- "$@" -d
+  #cmd="unzip -qq $zipFile -d $zipFolder"
+fi
+
+set -- "$@" "$zipFolder"
+
+echo "Running: $@"
+"$@"
 echo "::set-output name=outputPath::$zipFolder"
 echo "::add-path::$zipFolder"
