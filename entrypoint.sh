@@ -20,12 +20,14 @@ zipFolder="$3"
 
 if  [[ $args == zip* ]] ;
 then
-    zip -qq -r "$zipFile" "$zipFolder"
+    cmd="zip -qq -r $zipFile $zipFolder"
 fi
 if  [[ $args == unzip* ]] ;
 then
-    unzip -qq "$zipFile" -d "$zipFolder"
+    cmd="unzip -qq $zipFile -d $zipFolder"
 fi
 
+echo "Running: $cmd"
+${cmd}
 echo "::set-output name=outputPath::$zipFolder"
 echo "::add-path::$zipFolder"

@@ -20,9 +20,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.args }}
-    - ${{ inputs.zipFile }}
-    - ${{ inputs.zipFolder }}
+    - ${{ inputs.args }} ${{ inputs.zipFile }} ${{ inputs.zipFolder }}
 branding:
   icon: 'command'
   color: 'gray-dark'
