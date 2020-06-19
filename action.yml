@@ -4,15 +4,9 @@ author: Christopher Queen
 description: a cURL CLI
 inputs:
   args:  # id of input
-    description: 'zip or unzip with arguments'
+    description: 'zip or unzip followed by zipFile and zipFolder arguments'
     required: true
     default: 'zip'
-  zipFile:
-    description: 'path of zip file'
-    required: true
-  zipFolder:
-    description: 'Path of zip folder'
-    required: true
 outputs:
   outputPath: # id of output
     description: 'Output path of zip or unzip'
@@ -21,8 +15,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.args }}
-    - ${{ inputs.zipFile }}
-    - ${{ inputs.zipFolder }}
 branding:
   icon: 'command'
   color: 'gray-dark'
